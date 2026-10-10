@@ -100,10 +100,20 @@ button:focus-visible {
     background 0.2s,
     transform 0.2s;
 }
-.button span {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1;
+.arrow-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.18em;
+}
+.button .arrow-icon {
+  width: 18px;
+  height: 18px;
 }
 .button:hover {
   transform: translateY(-2px);
@@ -279,17 +289,6 @@ button:focus-visible {
   font-weight: 400;
   letter-spacing: -0.03em;
 }
-.hero-credit {
-  position: absolute;
-  bottom: 14px;
-  left: 60px;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: #51483e;
-  background: rgba(247, 242, 235, 0.75);
-  padding: 3px 8px;
-  border-radius: 3px;
-}
 @keyframes seal-turn {
   to {
     transform: rotate(360deg);
@@ -384,7 +383,6 @@ button:focus-visible {
   height: 43px;
   display: grid;
   place-items: center;
-  font-size: 24px;
   background: var(--gold-light);
   color: var(--black);
   transition: transform 0.2s;
@@ -392,10 +390,9 @@ button:focus-visible {
 .service-card:hover .round-arrow {
   transform: rotate(45deg);
 }
-.image-note {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 13px;
+.round-arrow svg {
+  width: 18px;
+  height: 18px;
 }
 .results,
 .insta {
@@ -441,16 +438,6 @@ button:focus-visible {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
   pointer-events: none;
 }
-.photo-tag {
-  position: absolute;
-  top: 17px;
-  left: 19px;
-  background: var(--gold-light);
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 10px;
-  color: var(--black);
-}
 .result-caption {
   position: absolute;
   bottom: 20px;
@@ -489,8 +476,11 @@ button:focus-visible {
   border: 1px solid #a59886;
   background: transparent;
   border-radius: 50%;
-  font-size: 21px;
   transition: background 0.2s;
+}
+.outline-arrow .arrow-icon {
+  width: 20px;
+  height: 20px;
 }
 .outline-arrow:hover {
   background: var(--gold-light);
@@ -533,12 +523,6 @@ button:focus-visible {
   background: rgba(21, 11, 9, 0.7);
   padding: 3px 7px;
   border-radius: 3px;
-}
-.gallery-note {
-  grid-column: 1/-1;
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 3px;
 }
 .about {
   display: grid;
@@ -643,8 +627,8 @@ footer {
   font-size: 13px;
   color: var(--gold-light);
 }
-.footer-social span {
-  margin-left: 20px;
+.footer-social .arrow-icon {
+  margin-left: 8px;
 }
 .footer-bottom {
   display: flex;
@@ -755,9 +739,6 @@ dialog li {
   .hero h1 {
     font-size: 8.1vw;
   }
-  .hero-credit {
-    left: 36px;
-  }
   .header nav {
     gap: 21px;
   }
@@ -849,9 +830,6 @@ dialog li {
   .hero-seal strong {
     font-size: 17px;
   }
-  .hero-credit {
-    left: 24px;
-  }
   .service-grid {
     gap: 14px;
   }
@@ -879,7 +857,6 @@ dialog li {
     height: 32px;
     right: 13px;
     bottom: 17px;
-    font-size: 20px;
   }
   .section {
     margin-top: 43px;
@@ -916,10 +893,6 @@ dialog li {
   .result-caption {
     font-size: 21px;
   }
-  .photo-tag {
-    font-size: 8px;
-    left: 12px;
-  }
   .insta-gallery {
     gap: 6px;
   }
@@ -931,9 +904,6 @@ dialog li {
     bottom: 6px;
     font-size: 8px;
     padding: 2px 4px;
-  }
-  .gallery-note {
-    font-size: 9px;
   }
   .about h2 {
     font-size: 26px;
@@ -1063,11 +1033,6 @@ dialog li {
   .hero-seal strong {
     font-size: 16px;
   }
-  .hero-credit {
-    left: 20px;
-    bottom: 12px;
-    font-size: 9px;
-  }
   .section {
     margin-top: 35px;
   }
@@ -1112,12 +1077,6 @@ dialog li {
     height: 42px;
     bottom: 22px;
     right: 23px;
-    font-size: 24px;
-  }
-  .image-note {
-    font-size: 10px;
-    margin-top: 13px;
-    line-height: 1.5;
   }
   .results,
   .insta {
@@ -1161,11 +1120,6 @@ dialog li {
     width: 38px;
     height: 38px;
   }
-  .photo-tag {
-    font-size: 8px;
-    left: 13px;
-    top: 13px;
-  }
   .result-caption {
     font-size: 24px;
     left: 18px;
@@ -1190,10 +1144,6 @@ dialog li {
     bottom: 6px;
     padding: 2px 3px;
     line-height: 1.2;
-  }
-  .gallery-note {
-    font-size: 9px;
-    line-height: 1.4;
   }
   .about {
     grid-template-columns: 1fr;

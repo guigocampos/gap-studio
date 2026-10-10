@@ -25,22 +25,22 @@ export const results = [
   {
     image: "hair",
     title: "Cabelos & expressão",
-    alt: "Prévia ilustrativa de cabelos ondulados; não é um resultado do salão",
+    alt: "Cabelos ondulados em tom castanho",
   },
   {
     image: "brows",
     title: "O detalhe do olhar",
-    alt: "Prévia ilustrativa de sobrancelhas cuidadas; não é um resultado do salão",
+    alt: "Sobrancelhas naturalmente definidas",
   },
   {
     image: "manicure",
     title: "Manicure & delicadeza",
-    alt: "Prévia ilustrativa de manicure nude; não é um resultado do salão",
+    alt: "Manicure em tom nude",
   },
   {
     image: "pedicure",
     title: "Pedicure & cuidado",
-    alt: "Prévia ilustrativa de pedicure; não é um resultado do salão",
+    alt: "Pedicure em tom nude",
   },
 ];
 export function cycleIndex(index, direction, length) {
