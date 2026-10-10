@@ -1,0 +1,1344 @@
+:root {
+  --ink: #241c19;
+  --black: #150b09;
+  --gold: #a27a30;
+  --gold-light: #ddc487;
+  --cream: #f7f2eb;
+  --beige: #eae0d5;
+  --muted: #6c625b;
+  --line: #d9cfc2;
+  --display: "Anton", "Impact", sans-serif;
+  --body: "DM Sans", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 25px;
+}
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+h1,
+h2,
+p,
+figure {
+  margin: 0;
+}
+h1,
+h2,
+.card-title {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+}
+button:focus-visible {
+  outline-offset: 3px;
+}
+.wrap {
+  width: calc(100% - 120px);
+  max-width: 1320px;
+  margin-inline: auto;
+}
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 12px 18px;
+  background: var(--cream);
+  z-index: 20;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 16px 25px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.button span {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+.button:hover {
+  transform: translateY(-2px);
+}
+.button-dark {
+  background: var(--ink);
+  color: var(--cream);
+}
+.button-dark:hover {
+  background: var(--black);
+}
+.button-gold {
+  background: var(--gold-light);
+  color: var(--black);
+}
+.button-gold:hover {
+  background: #cfb170;
+}
+.button-small {
+  font-size: 11px;
+  padding: 12px 19px;
+  gap: 19px;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.small-note {
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero {
+  position: relative;
+  height: 790px;
+  isolation: isolate;
+  overflow: hidden;
+  background: #e9ddd0;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  object-position: 50% 42%;
+}
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(233, 221, 208, 0.65),
+    rgba(233, 221, 208, 0) 52%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
+  gap: 30px;
+}
+.brand {
+  width: 112px;
+  height: 80px;
+  flex-shrink: 0;
+}
+.brand img {
+  object-fit: contain;
+}
+.header nav {
+  display: flex;
+  gap: 34px;
+  padding: 13px 25px;
+  background: rgba(247, 242, 235, 0.93);
+  border-radius: 30px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.header nav a {
+  position: relative;
+}
+.header nav a:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+.header nav a:hover:after {
+  transform: scaleX(1);
+}
+.header-book {
+  padding: 14px 23px;
+}
+.hero-copy {
+  padding-top: 132px;
+}
+.hero-copy .eyebrow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 12px;
+}
+.hero h1 {
+  font-size: clamp(65px, 7.9vw, 114px);
+  line-height: 1.13;
+  letter-spacing: -0.023em;
+  max-width: 680px;
+}
+.hero h1 > span {
+  color: var(--gold);
+}
+.hero-description {
+  margin-top: 22px;
+  font-size: 17px;
+}
+.hero-services {
+  font-size: 11px;
+  margin-top: 5px;
+}
+.hero-copy .button {
+  margin-top: 27px;
+}
+.hero-seal {
+  position: absolute;
+  width: 162px;
+  height: 162px;
+  right: max(5%, calc((100vw - 1320px) / 2));
+  bottom: 65px;
+  border-radius: 50%;
+  color: var(--gold-light);
+}
+.hero-seal svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--gold-light);
+  stroke-width: 0.7;
+  animation: seal-turn 70s linear infinite;
+}
+.hero-seal text {
+  fill: var(--gold-light);
+  stroke: none;
+  font-size: 10px;
+  letter-spacing: 2.3px;
+}
+.hero-seal > div {
+  position: absolute;
+  inset: 31px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-light);
+  color: var(--black);
+  font-size: 11px;
+  line-height: 1.3;
+}
+.hero-seal strong {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.hero-credit {
+  position: absolute;
+  bottom: 14px;
+  left: 60px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #51483e;
+  background: rgba(247, 242, 235, 0.75);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+@keyframes seal-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.section {
+  margin-top: 58px;
+}
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--body);
+  font-size: 12px;
+  line-height: 1;
+  padding: 9px 17px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  background: var(--beige);
+  border-radius: 20px;
+  font-weight: 600;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.service-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.98;
+  border: 0;
+  border-radius: 11px;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  background: var(--beige);
+  color: white;
+}
+.service-card:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    transparent 35%,
+    rgba(0, 0, 0, 0.32) 60%,
+    rgba(0, 0, 0, 0.85)
+  );
+  pointer-events: none;
+}
+.service-card img {
+  transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.25, 1);
+  object-position: 50% 34%;
+}
+.service-card:hover img {
+  transform: scale(1.045);
+}
+.card-copy {
+  position: absolute;
+  bottom: 27px;
+  left: 27px;
+  right: 65px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.card-title {
+  font-size: 58px;
+  letter-spacing: -0.035em;
+}
+.service-card:nth-child(2) .card-title {
+  font-size: clamp(28px, 3.9vw, 55px);
+}
+.card-description {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.round-arrow {
+  position: absolute;
+  z-index: 1;
+  bottom: 27px;
+  right: 27px;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  background: var(--gold-light);
+  color: var(--black);
+  transition: transform 0.2s;
+}
+.service-card:hover .round-arrow {
+  transform: rotate(45deg);
+}
+.image-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 13px;
+}
+.results,
+.insta {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+.editorial-copy h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 48px;
+  letter-spacing: -0.02em;
+}
+.editorial-copy p {
+  font-size: 14px;
+  margin-top: 19px;
+  line-height: 1.5;
+}
+.editorial-copy .button {
+  margin-top: 24px;
+}
+.results-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 105px;
+  background: var(--beige);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 304px;
+}
+.result-photo {
+  position: relative;
+  overflow: hidden;
+  background: #d9cbbd;
+}
+.result-photo img {
+  object-position: center 35%;
+}
+.result-photo:after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+.photo-tag {
+  position: absolute;
+  top: 17px;
+  left: 19px;
+  background: var(--gold-light);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 10px;
+  color: var(--black);
+}
+.result-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  font-size: 23px;
+  font-family: var(--display);
+  color: white;
+  z-index: 1;
+}
+.result-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+.result-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+.count-line {
+  width: 21px;
+  height: 1px;
+  background: var(--muted);
+}
+.result-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.outline-arrow {
+  width: 43px;
+  height: 43px;
+  border: 1px solid #a59886;
+  background: transparent;
+  border-radius: 50%;
+  font-size: 21px;
+  transition: background 0.2s;
+}
+.outline-arrow:hover {
+  background: var(--gold-light);
+}
+.insta {
+  align-items: start;
+  margin-top: 60px;
+}
+.insta .editorial-copy h2 {
+  font-size: 46px;
+}
+.insta-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+.insta-gallery figure {
+  position: relative;
+  aspect-ratio: 0.71;
+  overflow: hidden;
+  border-radius: 7px;
+  background: var(--beige);
+}
+.insta-gallery img {
+  transition: transform 0.5s;
+  object-position: center 36%;
+}
+.insta-gallery figure:last-of-type img {
+  object-position: 76% center;
+}
+.insta-gallery figure:hover img {
+  transform: scale(1.06);
+}
+.insta-gallery figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 10px;
+  color: white;
+  background: rgba(21, 11, 9, 0.7);
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+.gallery-note {
+  grid-column: 1/-1;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 20px 40px;
+  border-top: 1px solid var(--line);
+  padding-top: 38px;
+  align-items: center;
+}
+.about .eyebrow {
+  grid-column: 1/-1;
+}
+.about h2 {
+  font-size: 33px;
+}
+.about > p:last-child {
+  max-width: 700px;
+  font-size: 15px;
+  color: var(--muted);
+}
+.booking {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 90px;
+  padding: 50px 0 64px;
+  border-top: 1px solid var(--line);
+}
+.booking h2 {
+  font-size: 65px;
+  margin-top: 22px;
+  line-height: 1.12;
+}
+.booking h2 span {
+  color: var(--gold);
+  font-size: 56px;
+}
+.booking-info {
+  padding-top: 8px;
+  max-width: 400px;
+}
+.booking-lead {
+  font-size: 25px;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.booking-info > p:nth-child(2) {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 340px;
+}
+.booking-info .button {
+  margin-top: 23px;
+}
+.location {
+  margin-top: 31px;
+}
+.location address {
+  font-style: normal;
+  font-size: 14px;
+  margin: 10px 0;
+}
+.text-link {
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gold);
+  display: inline-flex;
+  gap: 30px;
+  padding-bottom: 3px;
+}
+.location .small-note {
+  font-size: 11px;
+  margin-top: 11px;
+}
+footer {
+  background: var(--black);
+  color: var(--cream);
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-block: 25px;
+}
+.footer-top .brand {
+  width: 112px;
+  height: 78px;
+}
+.footer-top .brand img {
+  filter: brightness(1.55);
+}
+.footer-top nav {
+  display: flex;
+  gap: 30px;
+  font-size: 12px;
+}
+.footer-top a:hover {
+  color: var(--gold-light);
+}
+.footer-social {
+  font-size: 13px;
+  color: var(--gold-light);
+}
+.footer-social span {
+  margin-left: 20px;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  border-top: 1px solid #493b30;
+  padding-block: 20px;
+  font-size: 10px;
+  color: #c4b9ac;
+}
+.footer-bottom strong {
+  margin-left: 8px;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+}
+dialog {
+  border: 0;
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 45px;
+  width: calc(100% - 36px);
+  max-width: 540px;
+  max-height: calc(100dvh - 40px);
+  overflow: auto;
+}
+dialog::backdrop {
+  background: rgba(21, 11, 9, 0.65);
+  backdrop-filter: blur(5px);
+}
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+.dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: var(--beige);
+  border-radius: 50%;
+  font-size: 28px;
+}
+dialog h2 {
+  font-size: 48px;
+  margin-top: 25px;
+}
+dialog > p:not(.eyebrow) {
+  margin-top: 19px;
+}
+dialog ul {
+  padding-left: 20px;
+  margin-block: 23px;
+  font-size: 15px;
+}
+dialog li {
+  padding-block: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.dialog-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+.reveal {
+  clip-path: inset(0 0 5% 0);
+  transition: clip-path 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.revealed {
+  clip-path: inset(0);
+}
+.hero-copy h1 {
+  animation: title-in 0.7s ease-out both;
+}
+@keyframes title-in {
+  from {
+    opacity: 0.45;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (min-width: 1600px) {
+  .hero {
+    height: 850px;
+  }
+  .hero-copy {
+    padding-top: 160px;
+  }
+  .hero-photo {
+    object-position: center 42%;
+  }
+}
+@media (max-width: 1100px) {
+  .wrap {
+    width: calc(100% - 72px);
+  }
+  .hero {
+    height: 690px;
+  }
+  .hero-copy {
+    padding-top: 110px;
+  }
+  .hero h1 {
+    font-size: 8.1vw;
+  }
+  .hero-credit {
+    left: 36px;
+  }
+  .header nav {
+    gap: 21px;
+  }
+  .results,
+  .insta,
+  .about {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 25px;
+  }
+  .editorial-copy h2 {
+    font-size: 40px;
+  }
+  .card-copy {
+    left: 20px;
+    bottom: 23px;
+    right: 50px;
+  }
+  .card-title {
+    font-size: 48px;
+  }
+  .round-arrow {
+    right: 18px;
+    bottom: 23px;
+    width: 37px;
+    height: 37px;
+  }
+  .results-gallery {
+    height: 270px;
+    grid-template-columns: minmax(0, 1fr) 85px;
+  }
+  .booking {
+    gap: 40px;
+  }
+  .booking h2 {
+    font-size: 55px;
+  }
+  .booking h2 span {
+    font-size: 46px;
+  }
+}
+@media (max-width: 800px) {
+  .wrap {
+    width: calc(100% - 48px);
+  }
+  .hero {
+    height: 600px;
+  }
+  .header {
+    height: 105px;
+    gap: 15px;
+  }
+  .header nav {
+    gap: 15px;
+    padding: 12px 17px;
+    font-size: 10px;
+  }
+  .header-book {
+    font-size: 10px;
+    padding: 12px 16px;
+    gap: 13px;
+  }
+  .brand {
+    width: 90px;
+    height: 67px;
+  }
+  .hero-copy {
+    padding-top: 93px;
+  }
+  .hero-copy .eyebrow {
+    font-size: 10px;
+  }
+  .hero h1 {
+    font-size: 8.3vw;
+  }
+  .hero-description {
+    font-size: 14px;
+  }
+  .hero-services {
+    font-size: 9px;
+  }
+  .hero-seal {
+    width: 125px;
+    height: 125px;
+    bottom: 38px;
+  }
+  .hero-seal > div {
+    inset: 24px;
+  }
+  .hero-seal strong {
+    font-size: 17px;
+  }
+  .hero-credit {
+    left: 24px;
+  }
+  .service-grid {
+    gap: 14px;
+  }
+  .service-card {
+    aspect-ratio: 0.77;
+  }
+  .card-copy {
+    left: 16px;
+    bottom: 20px;
+    right: 16px;
+    gap: 8px;
+  }
+  .card-title {
+    font-size: 37px;
+  }
+  .service-card:nth-child(2) .card-title {
+    font-size: 29px;
+  }
+  .card-description {
+    font-size: 10px;
+    padding-right: 29px;
+  }
+  .round-arrow {
+    width: 32px;
+    height: 32px;
+    right: 13px;
+    bottom: 17px;
+    font-size: 20px;
+  }
+  .section {
+    margin-top: 43px;
+  }
+  .section-top .small-note {
+    font-size: 10px;
+  }
+  .results,
+  .insta,
+  .about {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 20px;
+  }
+  .editorial-copy h2,
+  .insta .editorial-copy h2 {
+    font-size: 35px;
+  }
+  .editorial-copy p {
+    font-size: 12px;
+  }
+  .button-small {
+    font-size: 9px;
+    gap: 12px;
+    padding: 11px 15px;
+  }
+  .results-gallery {
+    height: 235px;
+    grid-template-columns: minmax(0, 1fr) 70px;
+  }
+  .result-count {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .result-caption {
+    font-size: 21px;
+  }
+  .photo-tag {
+    font-size: 8px;
+    left: 12px;
+  }
+  .insta-gallery {
+    gap: 6px;
+  }
+  .insta-gallery figure {
+    aspect-ratio: 0.5;
+  }
+  .insta-gallery figcaption {
+    left: 5px;
+    bottom: 6px;
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+  .gallery-note {
+    font-size: 9px;
+  }
+  .about h2 {
+    font-size: 26px;
+  }
+  .about > p:last-child {
+    font-size: 13px;
+  }
+  .booking {
+    gap: 30px;
+  }
+  .booking h2 {
+    font-size: 45px;
+  }
+  .booking h2 span {
+    font-size: 36px;
+  }
+  .booking-lead {
+    font-size: 21px;
+  }
+  .booking-info > p:nth-child(2) {
+    font-size: 12px;
+  }
+  .booking-info .button {
+    font-size: 10px;
+    gap: 18px;
+    padding: 14px 18px;
+  }
+  .footer-top nav {
+    gap: 17px;
+    font-size: 11px;
+  }
+  .footer-bottom {
+    font-size: 9px;
+  }
+  .footer-social {
+    font-size: 11px;
+  }
+}
+@media (max-width: 600px) {
+  .wrap {
+    width: calc(100% - 40px);
+  }
+  .hero {
+    height: 820px;
+  }
+  .hero-photo {
+    height: 470px;
+    top: auto;
+    bottom: 0;
+    object-position: 72% center;
+    width: 100%;
+  }
+  .hero:after {
+    background: linear-gradient(
+      #e9ddd0 0 43%,
+      rgba(233, 221, 208, 0.25) 54%,
+      transparent 64%
+    );
+  }
+  .header {
+    height: 86px;
+    flex-wrap: wrap;
+    gap: 0;
+    align-content: center;
+    position: relative;
+  }
+  .brand {
+    width: 78px;
+    height: 57px;
+  }
+  .header nav {
+    position: absolute;
+    top: 88px;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    gap: 12px;
+    font-size: 10px;
+  }
+  .header-book {
+    padding: 11px 17px;
+    font-size: 10px;
+    gap: 20px;
+  }
+  .hero-copy {
+    padding-top: 72px;
+  }
+  .hero-copy .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    margin-bottom: 17px;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 12.15vw, 73px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .hero-description {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  .hero-services {
+    font-size: 9px;
+    margin-top: 6px;
+  }
+  .hero-copy .button {
+    margin-top: 20px;
+    padding: 13px 19px;
+    font-size: 10px;
+    gap: 27px;
+  }
+  .hero-seal {
+    width: 116px;
+    height: 116px;
+    bottom: 45px;
+    right: 20px;
+  }
+  .hero-seal > div {
+    inset: 22px;
+    font-size: 9px;
+  }
+  .hero-seal strong {
+    font-size: 16px;
+  }
+  .hero-credit {
+    left: 20px;
+    bottom: 12px;
+    font-size: 9px;
+  }
+  .section {
+    margin-top: 35px;
+  }
+  .section-top {
+    margin-bottom: 18px;
+  }
+  .section-top .small-note {
+    display: none;
+  }
+  .section-label {
+    font-size: 11px;
+    padding: 7px 13px;
+  }
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .service-card {
+    aspect-ratio: 1.07;
+  }
+  .service-card img {
+    object-position: 50% 32%;
+  }
+  .card-copy {
+    left: 23px;
+    bottom: 23px;
+    gap: 11px;
+    right: 65px;
+  }
+  .card-title {
+    font-size: 53px;
+  }
+  .service-card:nth-child(2) .card-title {
+    font-size: 43px;
+  }
+  .card-description {
+    font-size: 12px;
+    padding-right: 0;
+  }
+  .round-arrow {
+    width: 42px;
+    height: 42px;
+    bottom: 22px;
+    right: 23px;
+    font-size: 24px;
+  }
+  .image-note {
+    font-size: 10px;
+    margin-top: 13px;
+    line-height: 1.5;
+  }
+  .results,
+  .insta {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .editorial-copy h2,
+  .insta .editorial-copy h2 {
+    font-size: 42px;
+  }
+  .editorial-copy p {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+  .editorial-copy .button {
+    margin-top: 18px;
+  }
+  .button-small {
+    font-size: 10px;
+    padding: 12px 18px;
+    gap: 20px;
+  }
+  .results-gallery {
+    height: 283px;
+    grid-template-columns: minmax(0, 1fr) 62px;
+  }
+  .result-photo img {
+    object-position: 50% 33%;
+  }
+  .result-navigation {
+    gap: 28px;
+  }
+  .result-count {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .result-controls {
+    gap: 9px;
+  }
+  .outline-arrow {
+    width: 38px;
+    height: 38px;
+  }
+  .photo-tag {
+    font-size: 8px;
+    left: 13px;
+    top: 13px;
+  }
+  .result-caption {
+    font-size: 24px;
+    left: 18px;
+  }
+  .insta {
+    margin-top: 38px;
+  }
+  .insta .editorial-copy h2 {
+    font-size: 42px;
+  }
+  .insta-gallery {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 7px;
+  }
+  .insta-gallery figure {
+    aspect-ratio: 0.45;
+    border-radius: 5px;
+  }
+  .insta-gallery figcaption {
+    font-size: 7px;
+    left: 3px;
+    bottom: 6px;
+    padding: 2px 3px;
+    line-height: 1.2;
+  }
+  .gallery-note {
+    font-size: 9px;
+    line-height: 1.4;
+  }
+  .about {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    padding-top: 26px;
+    margin-top: 33px;
+  }
+  .about .eyebrow {
+    font-size: 9px;
+  }
+  .about h2 {
+    font-size: 35px;
+  }
+  .about > p:last-child {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .booking {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+  .booking h2 {
+    font-size: 48px;
+    line-height: 1.14;
+    margin-top: 17px;
+  }
+  .booking h2 span {
+    font-size: 38px;
+  }
+  .booking-info {
+    padding-top: 0;
+    max-width: 100%;
+  }
+  .booking-info > p:nth-child(2) {
+    font-size: 13px;
+  }
+  .booking-info .button {
+    font-size: 11px;
+    margin-top: 19px;
+  }
+  .booking-lead {
+    font-size: 22px;
+  }
+  .location {
+    margin-top: 26px;
+  }
+  .location .small-note {
+    font-size: 10px;
+  }
+  .footer-top {
+    flex-wrap: wrap;
+    gap: 19px;
+    padding-block: 25px;
+  }
+  .footer-top .brand {
+    width: 87px;
+    height: 64px;
+  }
+  .footer-top nav {
+    gap: 18px;
+    justify-content: flex-end;
+    font-size: 10px;
+  }
+  .footer-social {
+    margin-left: auto;
+    font-size: 12px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 9px;
+    font-size: 9px;
+    padding-block: 18px;
+  }
+  dialog {
+    padding: 38px 25px 30px;
+  }
+  dialog h2 {
+    font-size: 39px;
+  }
+  dialog .eyebrow {
+    font-size: 10px;
+  }
+  dialog > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+  dialog .dialog-note {
+    font-size: 12px;
+  }
+  dialog .button {
+    font-size: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 11.9vw;
+  }
+  .hero-services {
+    font-size: 8px;
+  }
+  .hero-copy .eyebrow {
+    font-size: 8px;
+  }
+  .service-card:nth-child(2) .card-title {
+    font-size: 37px;
+  }
+  .booking h2 span {
+    font-size: 33px;
+  }
+  .footer-top nav {
+    gap: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    clip-path: none;
+  }
+  .button:hover {
+    transform: none;
+  }
+  .service-card:hover img,
+  .insta-gallery figure:hover img {
+    transform: none;
+  }
+}
+
+.contact-line {
+  font-size: 12px;
+  margin-top: 13px;
+  color: var(--muted);
+}
+.contact-line a:hover {
+  text-decoration: underline;
+}
+.outline-arrow {
+  width: 44px;
+  height: 44px;
+}

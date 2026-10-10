@@ -1,0 +1,12 @@
+{
+  "dateLocal": "2026-10-09",
+  "url": "http://127.0.0.1:5198/",
+  "viewport": [1440, 950],
+  "cpuThrottling": "1x",
+  "networkThrottling": "none",
+  "lcpMs": 210,
+  "cls": 0,
+  "inp": null,
+  "fieldData": null,
+  "note": "Local lab trace; not a public-production or real-device result."
+}

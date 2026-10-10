@@ -1,0 +1,48 @@
+// shortcut: catálogo limitado ao que foi confirmado, ampliar após validação direta do salão.
+export const services = {
+  cabelos: {
+    title: "CABELOS",
+    description:
+      "Um cuidado que acompanha seu estilo. Converse com a equipe sobre o que você deseja para seus fios.",
+    items: ["Cortes de cabelo", "Tratamentos capilares"],
+    note: "Converse com a equipe sobre técnicas, produtos, valores e disponibilidade para o seu atendimento.",
+  },
+  sobrancelhas: {
+    title: "SOBRANCELHAS",
+    description:
+      "Cuidado com o olhar, respeitando a sua expressão. Conheça as opções de atendimento diretamente com o salão.",
+    items: ["Atendimento para sobrancelhas"],
+    note: "Converse com a equipe para conhecer as técnicas disponíveis e escolher seu atendimento.",
+  },
+  unhas: {
+    title: "UNHAS",
+    description: "Mãos e pés também fazem parte do seu momento de cuidado.",
+    items: ["Manicure — cuidado com as mãos", "Pedicure — cuidado com os pés"],
+    note: "Consulte as opções de atendimento para mãos e pés, valores e disponibilidade com a equipe.",
+  },
+};
+export const results = [
+  {
+    image: "hair",
+    title: "Cabelos & expressão",
+    alt: "Prévia ilustrativa de cabelos ondulados; não é um resultado do salão",
+  },
+  {
+    image: "brows",
+    title: "O detalhe do olhar",
+    alt: "Prévia ilustrativa de sobrancelhas cuidadas; não é um resultado do salão",
+  },
+  {
+    image: "manicure",
+    title: "Manicure & delicadeza",
+    alt: "Prévia ilustrativa de manicure nude; não é um resultado do salão",
+  },
+  {
+    image: "pedicure",
+    title: "Pedicure & cuidado",
+    alt: "Prévia ilustrativa de pedicure; não é um resultado do salão",
+  },
+];
+export function cycleIndex(index, direction, length) {
+  return (index + direction + length) % length;
+}

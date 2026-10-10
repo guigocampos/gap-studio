@@ -1,0 +1,19 @@
+{
+  "name": "gap-studio-hair",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5197",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 5197",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "@fontsource/anton": "^5.2.7",
+    "@fontsource/dm-sans": "^5.2.7"
+  },
+  "devDependencies": {
+    "vite": "^7.1.3"
+  }
+}
