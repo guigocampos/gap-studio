@@ -94,8 +94,10 @@ button:focus-visible {
   border-radius: 24px;
   font-size: 12px;
   font-weight: 700;
+  font-family: var(--body);
   line-height: 1.2;
   text-transform: uppercase;
+  border: 0;
   transition:
     background 0.2s,
     transform 0.2s;
@@ -526,22 +528,167 @@ button:focus-visible {
 }
 .about {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  gap: 20px 40px;
-  border-top: 1px solid var(--line);
-  padding-top: 38px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: clamp(28px, 5vw, 72px);
   align-items: center;
 }
-.about .eyebrow {
-  grid-column: 1/-1;
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1.55;
+  object-fit: cover;
+  border-radius: 5px;
 }
 .about h2 {
-  font-size: 33px;
+  margin: 15px 0 18px;
+  font-size: 43px;
+  line-height: 0.98;
 }
-.about > p:last-child {
-  max-width: 700px;
+.about-copy > p:not(.eyebrow) {
+  max-width: 470px;
   font-size: 15px;
   color: var(--muted);
+  line-height: 1.7;
+}
+.about-copy .text-link {
+  margin-top: 23px;
+}
+.faq {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: 30px 72px;
+  padding: 42px 0 50px;
+  border-top: 1px solid var(--line);
+}
+.faq-intro h2 {
+  margin: 13px 0 16px;
+  font-size: 46px;
+  line-height: 0.98;
+}
+.faq-intro > p:last-child {
+  max-width: 300px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+}
+.faq-list details:first-child {
+  border-top: 1px solid var(--line);
+}
+.faq-list summary {
+  position: relative;
+  padding: 19px 34px 19px 0;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.35;
+  list-style: none;
+  cursor: pointer;
+}
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+.faq-list summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 1px;
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: 400;
+  transform: translateY(-50%);
+}
+.faq-list details[open] summary::after {
+  content: "−";
+}
+.faq-list summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.faq-list details p {
+  max-width: 620px;
+  padding: 0 28px 19px 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.faq-cta {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 1px;
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 30px 72px;
+  padding: 42px 0 50px;
+  border-top: 1px solid var(--line);
+}
+.testimonials-intro h2 {
+  margin: 13px 0 17px;
+  font-size: 46px;
+  line-height: 0.98;
+}
+.google-rating {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0 12px;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+}
+.google-rating strong {
+  grid-row: span 2;
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 48px;
+  line-height: 1;
+}
+.rating-stars {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+.google-rating > span:last-child {
+  color: var(--muted);
+  font-size: 11px;
+}
+.google-rating:focus-visible,
+.review-card:focus-within {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.review-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 190px;
+  margin: 0;
+  padding: 24px;
+  border-top: 2px solid var(--gold);
+  background: #fffaf4;
+}
+.review-card blockquote p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.review-card figcaption {
+  display: grid;
+  gap: 4px;
+  margin-top: 24px;
+  font-size: 12px;
+}
+.review-card figcaption span {
+  color: var(--muted);
+  font-size: 10px;
 }
 .booking {
   display: grid;
@@ -693,7 +840,94 @@ dialog li {
 .dialog-note {
   font-size: 12px;
   color: var(--muted);
-  margin-bottom: 25px;
+  margin: 5px 0 15px;
+}
+.service-context {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.service-context summary {
+  width: fit-content;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+.service-context summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+#booking-form {
+  margin-top: 22px;
+}
+.booking-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.form-field {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.form-field span {
+  color: var(--muted);
+  font-weight: 500;
+}
+.form-field-observations > span {
+  display: flex;
+  gap: 5px;
+}
+.form-field-observations em {
+  font-style: normal;
+  font-weight: 500;
+}
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fffaf4;
+  color: var(--ink);
+  padding: 11px 12px;
+  font: 500 13px/1.4 var(--body);
+}
+.form-field textarea {
+  resize: vertical;
+}
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.booking-form-note {
+  margin: 16px 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+#booking-form > .button {
+  width: 100%;
+}
+.booking-status {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+#booking-fallback {
+  margin-top: 12px;
+}
+#booking-fallback[hidden] {
+  display: none;
 }
 .reveal {
   clip-path: inset(0 0 5% 0);
@@ -908,8 +1142,31 @@ dialog li {
   .about h2 {
     font-size: 26px;
   }
-  .about > p:last-child {
+  .about-copy > p:not(.eyebrow) {
     font-size: 13px;
+  }
+  .faq {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 22px 25px;
+  }
+  .testimonials {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 22px 25px;
+  }
+  .testimonials-intro h2 {
+    font-size: 35px;
+  }
+  .review-card {
+    padding: 18px;
+  }
+  .review-card blockquote p {
+    font-size: 14px;
+  }
+  .faq-intro h2 {
+    font-size: 35px;
+  }
+  .faq-list summary {
+    font-size: 14px;
   }
   .booking {
     gap: 30px;
@@ -1147,9 +1404,11 @@ dialog li {
   }
   .about {
     grid-template-columns: 1fr;
-    gap: 17px;
-    padding-top: 26px;
-    margin-top: 33px;
+    gap: 23px;
+    margin-top: 38px;
+  }
+  .about-photo {
+    aspect-ratio: 1.34;
   }
   .about .eyebrow {
     font-size: 9px;
@@ -1157,9 +1416,42 @@ dialog li {
   .about h2 {
     font-size: 35px;
   }
-  .about > p:last-child {
+  .about-copy > p:not(.eyebrow) {
     font-size: 13px;
     line-height: 1.7;
+  }
+  .faq {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 30px 0 38px;
+  }
+  .testimonials {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 30px 0 38px;
+  }
+  .testimonials-intro h2 {
+    font-size: 42px;
+  }
+  .review-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .review-card {
+    min-height: 150px;
+  }
+  .faq-intro h2 {
+    font-size: 42px;
+  }
+  .faq-list summary {
+    padding-block: 17px;
+    font-size: 15px;
+  }
+  .faq-list details p {
+    font-size: 13px;
+  }
+  .faq-cta {
+    grid-column: 1;
   }
   .booking {
     grid-template-columns: 1fr;
@@ -1220,7 +1512,7 @@ dialog li {
     padding-block: 18px;
   }
   dialog {
-    padding: 38px 25px 30px;
+    padding: 30px 20px 24px;
   }
   dialog h2 {
     font-size: 39px;
@@ -1233,6 +1525,32 @@ dialog li {
   }
   dialog .dialog-note {
     font-size: 12px;
+  }
+  .booking-form-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  #booking-form {
+    margin-top: 14px;
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .form-field textarea {
+    min-height: 58px;
+  }
+  .booking-form-note {
+    margin: 10px 0 8px;
+    font-size: 10px;
+  }
+  #booking-form > .button {
+    padding: 14px 18px;
+  }
+  .form-field-wide {
+    grid-column: auto;
   }
   dialog .button {
     font-size: 10px;

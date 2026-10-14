@@ -45,10 +45,18 @@ async (page) => {
       await card.click();
       if (
         !(await page
-          .locator("#service-dialog")
+          .locator("#booking-dialog")
           .evaluate((dialog) => dialog.open))
       )
-        throw new Error("Dialog failed: " + key);
+        throw new Error("Booking triage did not open: " + key);
+      const expectedArea = {
+        cabelos: "Cabelos",
+        sobrancelhas: "Sobrancelhas",
+        unhas: "Unhas (manicure ou pedicure)",
+      }[key];
+      if ((await page.locator("#booking-area").inputValue()) !== expectedArea)
+        throw new Error("Service area was not preselected: " + key);
+      await page.locator("#service-context summary").click();
       if (
         key === "unhas" &&
         !(await page
@@ -61,7 +69,7 @@ async (page) => {
         throw new Error("Missing manicure or pedicure");
       await page.keyboard.press("Escape");
       if (
-        await page.locator("#service-dialog").evaluate((dialog) => dialog.open)
+        await page.locator("#booking-dialog").evaluate((dialog) => dialog.open)
       )
         throw new Error("Escape did not close dialog");
       if (
@@ -82,12 +90,10 @@ async (page) => {
     )
       throw new Error("Caption failed");
     await page.locator("#previous-result").click();
-    const whatsapp = page.locator(".booking-info a.button");
-    if ((await whatsapp.getAttribute("href")) !== "https://wa.me/5513991201050")
-      throw new Error("Wrong official WhatsApp");
     await page.locator(".header-book").click();
-    if (!page.url().endsWith("#agendamento"))
-      throw new Error("Booking navigation failed");
+    if (!(await page.locator("#booking-dialog").evaluate((dialog) => dialog.open)))
+      throw new Error("Header did not open booking triage");
+    await page.keyboard.press("Escape");
     await page.evaluate(() => {
       document.documentElement.style.scrollBehavior = "auto";
       window.scrollTo(0, 0);
@@ -119,10 +125,36 @@ async (page) => {
   await page.locator('[data-service="cabelos"]').focus();
   await page.keyboard.press("Enter");
   if (
-    !(await page.locator("#service-dialog").evaluate((dialog) => dialog.open))
+    !(await page.locator("#booking-dialog").evaluate((dialog) => dialog.open))
   )
     throw new Error("Keyboard activation failed");
   await page.keyboard.press("Escape");
+  await page.locator(".booking-info [data-booking-open]").click();
+  await page.locator("#booking-name").fill("Joana de Teste");
+  await page.locator("#booking-area").selectOption("Pedicure");
+  await page.locator("#booking-procedure").fill("Pedicure");
+  await page.locator("#booking-date").fill("2030-08-20");
+  await page.locator("#booking-period").selectOption("Tarde");
+  await page.locator("#booking-observations").fill("Primeira visita");
+  await page.evaluate(() => {
+    window.__bookingWhatsappUrl = "";
+    window.open = (url) => {
+      window.__bookingWhatsappUrl = String(url);
+      return { opener: null };
+    };
+  });
+  await page.locator('#booking-form button[type="submit"]').click();
+  const whatsapp = await page.evaluate(() => ({
+    url: window.__bookingWhatsappUrl,
+    message: new URL(window.__bookingWhatsappUrl).searchParams.get("text"),
+  }));
+  if (
+    !whatsapp.url.startsWith("https://wa.me/5513991201050?") ||
+    !whatsapp.message.includes("Área: Pedicure") ||
+    !whatsapp.message.includes("Dia de preferência: 20/08/2030") ||
+    !whatsapp.message.includes("Observações: Primeira visita")
+  )
+    throw new Error("Booking details were not composed for the official WhatsApp");
   await page.setViewportSize({ width: 320, height: 800 });
   if (
     await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)

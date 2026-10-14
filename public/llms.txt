@@ -21,4 +21,6 @@ As imagens da seção Inspirações são referências visuais de beleza. Para co
 
 - [Serviços](./#servicos): cabelos, sobrancelhas e unhas, incluindo manicure e pedicure.
 - [Sobre](./#sobre): apresentação compacta do salão.
-- [Agendamento e localização](./#agendamento): canais oficiais de contato.
+- [Dúvidas frequentes](./#perguntas): áreas de atendimento, consulta de procedimentos, preços e horários, curso divulgado no Linktree e canais oficiais.
+- [Depoimentos](./#depoimentos): trechos de avaliações públicas com link para a ficha original no Google Maps.
+- [Agendamento e localização](./#agendamento): triagem do serviço, data e período de preferência; a mensagem segue para o WhatsApp oficial e a equipe confirma a disponibilidade.
